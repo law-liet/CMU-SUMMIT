@@ -66,3 +66,6 @@ env
 
 # embeded db
 db.sqlite3
+
+# IDE setting
+.idea
