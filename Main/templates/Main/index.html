@@ -1,42 +1,7 @@
 
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>CMU-SUMMIT</title>
-    {% load staticfiles %}
-    <!-- Bootstrap Core CSS -->
-    <link href="{% static 'Main/css/bootstrap.min.css' %}" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="{% static 'Main/css/agency.css' %}" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="{% static 'Main/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-</head>
-
-<body id="page-top" class="index">
+{% extends 'Main/base.html' %}
+{% load staticfiles %}
+{% block content %}
 
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -105,7 +70,7 @@
             <div class="intro-text">
                 <div class="intro-lead-in">CMU SUMMIT</div>
                 <div class="intro-heading">US-China Innovation and Entrepreneurship</div>
-                <a href="register.html" class="page-scroll btn btn-xl">Register</a>
+                <a href="{% url 'Main:register' %}" class="page-scroll btn btn-xl">Register</a>
             </div>
         </div>
         </div>
@@ -160,7 +125,7 @@
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <a href="featured_events.html#lunch-event"><h4>12:00pm-01:00pm&emsp;<strong>Lunch Event</strong></h4></a>
+                                    <a href="{% url 'Main:feature_events' %}"><h4>12:00pm-01:00pm&emsp;<strong>Lunch Event</strong></h4></a>
                                 </div>
                                 <div class="timeline-heading">
                                     <h4>01:00pm-01:30pm&emsp;<strong>Keynote Four</strong></h4>
@@ -606,54 +571,4 @@
         </div>
     </section>
 
-
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <span class="copyright">Copyright &copy; CMU-SUMMIT 2016</span>
-                </div>
-                <div class="col-md-4">
-                    <ul class="list-inline social-buttons">
-                        <li><a href="#"><i class="fa fa-twitter"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <ul class="list-inline quicklinks">
-                        <li><a href="#">Privacy Policy</a>
-                        </li>
-                        <li><a href="#">Terms of Use</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    
-    <!-- jQuery -->
-    <script src="{% static 'Main/js/jquery.js' %}"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="{% static 'Main/js/bootstrap.min.js' %}"></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-    <script src="{% static 'Main/js/classie.js' %}"></script>
-    <script src="{% static 'Main/js/cbpAnimatedHeader.min.js' %}"></script>
-
-    <!-- Contact Form JavaScript -->
-    <script src="{% static 'Main/js/jqBootstrapValidation.js' %}"></script>
-    <script src="{% static 'Main/js/contact_me.js' %}"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="{% static 'Main/js/agency.js' %}"></script>
-
-</body>
-
-</html>
+{% endblock %}
