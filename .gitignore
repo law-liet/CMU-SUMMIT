@@ -69,3 +69,8 @@ db.sqlite3
 
 # IDE setting
 .idea
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
