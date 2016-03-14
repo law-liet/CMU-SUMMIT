@@ -14,13 +14,14 @@ $(function() {
             var message = $("textarea#message").val();
             var company = $("select#company").val();
             var role = $("select#role").val();
+            var token = $("input[name='csrfmiddlewaretoken']").val();
             var firstName = name; // For Success/Failure Message
             // Check for white space in name for Success/Fail message
             if (firstName.indexOf(' ') >= 0) {
                 firstName = name.split(' ').slice(0, -1).join(' ');
             }
             $.ajax({
-                url: "././mail/contact_me.php",
+                url: window.url,
                 type: "POST",
                 data: {
                     name: name,
@@ -28,7 +29,8 @@ $(function() {
                     email: email,
                     message: message,
                     company: company,
-                    role: role
+                    role: role,
+                    csrfmiddlewaretoken: token
                 },
                 cache: false,
                 success: function() {
