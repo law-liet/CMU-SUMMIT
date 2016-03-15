@@ -19,3 +19,4 @@ wcwidth==0.1.6
 websocket-client==0.35.0
 wheel==0.24.0
 whitenoise==2.0.6
+MySQL-python==1.2.3
