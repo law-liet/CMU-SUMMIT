@@ -45,3 +45,6 @@ def signup(request):
 
 def about_us(request):
     return render(request, 'Main/about_us.html')
+
+def test(request):
+    return render(request, 'Main/events_register.html')    
