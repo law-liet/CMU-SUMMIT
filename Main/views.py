@@ -10,17 +10,17 @@ def redirectHttps(request):
     return redirect('https://' + temp, permanent=True)
 
 def index(request):
-    if (request.is_secure()):
-        return render(request, 'Main/index.html')
-    else:
-        return redirectHttps(request)        
+    #if (request.is_secure()):
+    return render(request, 'Main/index.html')
+    #else:
+    #return redirectHttps(request)        
 
 
 def register(request):
-    if (request.is_secure()):
-        return render(request, 'Main/register.html')
-    else:
-        return redirectHttps(request)  
+    #if (request.is_secure()):
+    return render(request, 'Main/register.html')
+    #else:
+    #return redirectHttps(request)  
 
 def panelist(request):
     return render(request, 'Main/panelist.html')
