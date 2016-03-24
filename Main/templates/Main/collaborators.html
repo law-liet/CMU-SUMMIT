@@ -1,36 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'Main/base.html' %}
+{% load staticfiles %}
+{% block content %}
 
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>CMU-SUMMIT</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-
-    <!-- Custom CSS -->
-    <link href="css/agency.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-</head>
-<body id="page-top" class="index">
 <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -41,7 +12,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="index.html">CMU-SUMMIT</a>
+                <a class="navbar-brand page-scroll" href="#page-top">CMU-SUMMIT</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -51,35 +22,39 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a href="agenda.html">AGENDA</a>
+                        <a href="{% url 'Main:agenda' %}" id="agenda">AGENDA</a>
                     </li>
                     <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">SPEAKERS <i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu">
-                                <li><a href="opening_remarks.html">Opening Remarks</a></li>
-                                <li><a href="keynote_speakers.html">Keynote Speakers</a></li>
-                                <li><a href="panelist.html">Panel Speakers</a></li>
+                                <li><a href="{% url 'Main:opening_remarks' %}">Opening Remarks</a></li>
+                                <li><a href="{% url 'Main:keynote_speakers' %}">Keynote Speakers</a></li>
+                                <li><a href="{% url 'Main:panelist' %}">Panel Speakers</a></li>
                             </ul>
                     </li>
                     <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">PANELS <i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu">
-                                 <li><a href="ie.html">IE</a></li>
-                                <li><a href="start_up.html">Start-up</a></li>
-                                <li><a href="sustainability.html">Sustainability</a></li>
-                                <li><a href="high_tech.html">High Tech</a></li>
-                                <li><a href="finance.html">Finance</a></li>
+                                <li><a href="{% url 'Main:ie' %}">IE</a></li>
+                                <li><a href="{% url 'Main:start_up' %}">Start-up</a></li>
+                                <li><a href="{% url 'Main:sustainability' %}">Sustainability</a></li>
+                                <li><a href="{% url 'Main:high_tech' %}">High Tech</a></li>
+                                <li><a href="{% url 'Main:finance' %}">Finance</a></li>
                             </ul>
                         </li>
                     <li>
-                        <a class="page-scroll" href="competition.html">COMPETITION</a>
+                        <a href="{% url 'Main:competition' %}">COMPETITION</a>
                     </li>
-                    <li>
-                        <a class="active" href="#collabrators">COLLABRATORS</a>
+                    <li class="">
+                        <a class="page-scroll active" href="{% url 'Main:collaborators' %}">COLLABRATORS</a>
                     </li>
-                    <li>
-                        <a class="page-scroll" href="career.html">CAREER</a>
-                    </li>
+                    <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">CAREER <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                                 <li><a href="{% url 'Main:career' %}">Recruiters</a></li>
+                                <li><a href="{% url 'Main:job_fair' %}">Jobfair</a></li>
+                            </ul>
+                        </li>
                     <li>
                         <a class="page-scroll" href="#resources">RESOURCES</a>
                     </li>
@@ -93,7 +68,6 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
-    
     <!-- Competiton Section -->
     <!-- Collabrators Section -->
     <section id="collabrators" class="bg-light-gray">
@@ -105,121 +79,482 @@
 
                 </div>
             </div>
-           <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h4 class="section-heading"><u>Bronze Level Sponsor</u></h4>   
-                </div>
-           </div>
-           <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h4 class="section-heading"><strong>DJI 大疆<strong></h4>   
-                </div>
-           </div>
+            <br>
+            <br>
 
-           <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h4 class="section-heading"><u>Diamond Level Sponsor</u></h4>   
-                </div>
-                <div class="col-lg-12 text-center">
-                    <h4 class="section-heading"><strong>浙江股权交易中心<strong></h4>   
-                </div>
-           </div>
-           <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h4 class="section-heading"><u>Collabrators</u></h4>   
-                </div>
 
-           </div>
+
+
             <div class="row">
-                <div class="col-lg-1 text-center"></div>
-                <div class="col-lg-2 text-center">
-                    <h4 class="section-heading"><strong>匹兹堡邮报户外群</strong></h4>   
+                <div class="col-lg-1 text-center">
+                <img src="{% static 'Main/img/premium-icon.png' %}" class="img-responsive" alt="">
                 </div>
-                <div class="col-lg-2 text-center">
-                    <h4 class="section-heading"><strong>宾大沃顿中美峰会</strong></h4>   
+                <div class="col-lg-11 text-center">
+                <h4><strong>Premium Level Sponsor</strong></h4> 
                 </div>
-                <div class="col-lg-2 text-center">
-                    <h4 class="section-heading"><strong>PITTCSSA</strong></h4>   
-                </div>
-                <div class="col-lg-2 text-center">
-                    <h4 class="section-heading"><strong>真格基金</strong></h4>   
-                </div>
-                <div class="col-lg-2 text-center">
-                    <h4 class="section-heading"><strong>FreeS</strong></h4>   
-                </div>
-                
            </div>
+           <br>
+           <br>
            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h4 class="section-heading"><u>Media Sponsor</u></h4>   
-                </div>
-           </div>
-           <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h4 class="section-heading"><strong>友好匹兹堡</strong></h4>   
-                </div>
-           </div>
-           <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h4 class="section-heading"><u>Strategic Partner</u></h4>   
-                </div>
-           </div>
-           <div class="row">
-                 <div class="col-lg-1 text-center"></div>
-                <div class="col-lg-5 text-center">
-                    <h4 class="section-heading"><strong>2016国际智能星创师大赛</strong></h4>   
-                </div>
-                <div class="col-lg-5 text-center">
-                    <h4 class="section-heading"><strong>社创之星</strong></h4>   
-                </div>
-           </div>
+            <div class="col-lg-1 text-center"></div>
+            <div class="col-lg-3 text-center">
+                <img src="{% static 'Main/img/logos/zjgqjyzx.png' %}" class="img-responsive" alt="">
+            </div>
+            <div class="col-lg-3 text-center"></div>
+            <div class="col-lg-5 text-center">
+                <h4 class="section-heading"><strong><a href="http://www.zjex.com.cn/">浙江股权交易中心</a></strong></h4> 
+                <h4 class="section-heading"><strong>Zhejiang Equity Exchange</strong></h4>
+                <p class="text-muted">浙江股权交易中心（简称：中心）于2012年9月3日注册成立，是浙江省人民政府依据国家有关监管部门的相关规定，结合浙江省经济金融特色，为着力解决“两多两难”，推进温州金融综合改革，促进经济转型升级而设立的区域性股权交易市场。</p>
+            </div>  
         </div>
-    </section>
-    
-     <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <span class="copyright">Copyright &copy; CMU-SUMMIT 2016</span>
-                </div>
-                <div class="col-md-4">
-                    <ul class="list-inline social-buttons">
-                        <li><a href="#"><i class="fa fa-twitter"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <ul class="list-inline quicklinks">
-                        <li><a href="#">Privacy Policy</a>
-                        </li>
-                        <li><a href="#">Terms of Use</a>
-                        </li>
-                    </ul>
-                </div>
+
+         <br>
+        <br>
+        <br>
+        <br>
+
+        <div class="row">
+            <div class="col-lg-1 text-center"></div>
+            <div class="col-lg-3 text-center">
+                <img src="{% static 'Main/img/logos/CSSA.jpg' %}" class="img-responsive" alt="">
+            </div>
+            <div class="col-lg-3 text-center"></div>
+            <div class="col-lg-5 text-center">
+                <h4 class="section-heading"><strong>CMU CSSA</strong></h4>
+  
             </div>
         </div>
-    </footer>
+        <br>
+        <br>
+        <br>
+        <br>
+        <hr/>
+        <br>
+        <br>
 
-    <!-- jQuery -->
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+            <!-- silver level -->
+            <div class="row">
+                <div class="col-lg-1 text-center">
+                <img src="{% static 'Main/img/silver-icon.png' %}" class="img-responsive" alt="">
+                </div>
+                <div class="col-lg-11 text-center">
+                <h4><strong>Silver Level Sponsor</strong></h4> 
+                </div>
+           </div>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+           <br>
+           <br>
+           <div class="row">
+            <div class="col-lg-1 text-center"></div>
+            <div class="col-lg-3 text-center">
+                <img src="{% static 'Main/img/logos/Westlake Ventures.png' %}" class="img-responsive" alt="">
+            </div>
+            <div class="col-lg-3 text-center"></div>
+            <div class="col-lg-5 text-center">
+            <h4 class="section-heading"><strong>杭州硅谷创新中心</strong></h4> 
+                <h4 class="section-heading"><strong>Westlake Ventures</strong></h4>   
+            </div>
+            </div>
+             <br>
+           <br>
+           <br>
+           <br>
 
-    <!-- Plugin JavaScript -->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-    <script src="js/classie.js"></script>
-    <script src="js/cbpAnimatedHeader.js"></script>
+           <div class="row">
+            <div class="col-lg-1 text-center"></div>
+            <div class="col-lg-3 text-center">
+                <img src="{% static 'Main/img/logos/Cheetah_Mobile_Logo.png' %}" class="img-responsive" alt="">
+            </div>
+            <div class="col-lg-3 text-center"></div>
+            <div class="col-lg-5 text-center">
+                <h4 class="section-heading"><strong>猎豹移动</strong></h4> 
+                <h4 class="section-heading"><strong>Cheetah Mobile</strong></h4>     
+            </div>
+            </div>
 
-    <!-- Contact Form JavaScript -->
-    <script src="js/jqBootstrapValidation.js"></script>
-    <script src="js/contact_me.js"></script>
 
-    <!-- Custom Theme JavaScript -->
-    <script src="js/agency.js"></script>
-</body>
-</html>
+            <br>
+        <br>
+        <br>
+        <br>
+        <hr/>
+        <br>
+        <br>
+
+
+
+            <!-- bronze level -->
+
+           <div class="row">
+                <div class="col-lg-1 text-center">
+                <img src="{% static 'Main/img/bronze.png' %}" class="img-responsive" alt="">
+                </div>
+                <div class="col-lg-11 text-center">
+                <h4><strong>Bronze Level Sponsor</strong></h4> 
+                </div>
+           </div>
+           <br>
+           <br>
+           <div class="row">
+            <div class="col-lg-1 text-center"></div>
+            <div class="col-lg-3 text-center">
+                <img src="{% static 'Main/img/logos/DJI_logo.png' %}" class="img-responsive" alt="">
+            </div>
+            <div class="col-lg-3 text-center"></div>
+            <div class="col-lg-5 text-center">
+                <h4 class="section-heading"><strong>大疆</strong></h4> 
+                <h4 class="section-heading"><strong>DJI</strong></h4>     
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <hr/>
+        <br>
+        <br>
+
+        <!-- collarborator -->
+        <div class="row">
+                <div class="col-lg-1 text-center">
+                <img src="{% static 'Main/img/collaborator.ico' %}" class="img-responsive" alt="">
+                </div>
+                <div class="col-lg-11 text-center">
+                <h4><strong>Collaborators</strong></h4> 
+                </div>
+           </div>
+           <br>
+           <br>
+           <div class="row">
+            <div class="col-lg-1 text-center"></div>
+            <div class="col-lg-3 text-center">
+                <img src="{% static 'Main/img/logos/pityb.jpg' %}" class="img-responsive" alt="">
+            </div>
+            <div class="col-lg-3 text-center"></div>
+            <div class="col-lg-5 text-center">
+                <h4 class="section-heading"><strong>匹兹堡邮报户外群</strong></h4> 
+                <h4 class="section-heading"><strong>匹兹堡邮报户外群</strong></h4>     
+            </div>
+        </div>
+        <br>
+        <br>
+           <div class="row">
+            <div class="col-lg-1 text-center"></div>
+            <div class="col-lg-3 text-center">
+                <img src="{% static 'Main/img/logos/PWCS.JPG' %}" class="img-responsive" alt="">
+            </div>
+            <div class="col-lg-3 text-center"></div>
+            <div class="col-lg-5 text-center">
+                <h4 class="section-heading"><strong>宾大沃顿中美峰会</strong></h4> 
+                <h4 class="section-heading"><strong>PWCS</strong></h4>     
+            </div>
+        </div>
+        <br>
+           <br>
+           <div class="row">
+            <div class="col-lg-1 text-center"></div>
+            <div class="col-lg-3 text-center">
+                <img src="{% static 'Main/img/logos/PITCSSA.jpg' %}" class="img-responsive" alt="">
+            </div>
+            <div class="col-lg-3 text-center"></div>
+            <div class="col-lg-5 text-center">
+                <h4 class="section-heading"><strong>匹兹堡大学中国学生学者联谊会</strong></h4> 
+                <h4 class="section-heading"><strong>PITTCSSA</strong></h4>     
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-lg-1 text-center"></div>
+            <div class="col-lg-3 text-center">
+                <img src="{% static 'Main/img/logos/zhengfund.jpg' %}" class="img-responsive" alt="">
+            </div>
+            <div class="col-lg-3 text-center"></div>
+            <div class="col-lg-5 text-center">
+                <h4 class="section-heading"><strong>真格基金</strong></h4> 
+                <h4 class="section-heading"><strong>ZhenFund</strong></h4>     
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-lg-1 text-center"></div>
+            <div class="col-lg-3 text-center">
+                <img src="{% static 'Main/img/logos/FREES.jpg' %}" class="img-responsive" alt="">
+            </div>
+            <div class="col-lg-3 text-center"></div>
+            <div class="col-lg-5 text-center">
+                <h4 class="section-heading"><strong>峰瑞资本</strong></h4> 
+                <h4 class="section-heading"><strong>FreeS</strong></h4>     
+            </div>
+        </div>
+
+
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-lg-1 text-center"></div>
+            <div class="col-lg-3 text-center">
+                <img src="{% static 'Main/img/logos/bmlxsrb.jpg' %}" class="img-responsive" alt="">
+            </div>
+            <div class="col-lg-3 text-center"></div>
+            <div class="col-lg-5 text-center">
+                <h4 class="section-heading"><strong>北美留学生日报</strong></h4> 
+            </div>
+        </div>
+
+
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-lg-1 text-center"></div>
+            <div class="col-lg-3 text-center">
+                <img src="{% static 'Main/img/logos/liaoyuan.png' %}" class="img-responsive" alt="">
+            </div>
+            <div class="col-lg-3 text-center"></div>
+            <div class="col-lg-5 text-center">
+                <h4 class="section-heading"><strong>燎原</strong></h4> 
+                <h4 class="section-heading"><strong>Liaoyuan</strong></h4>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-lg-1 text-center"></div>
+            <div class="col-lg-3 text-center">
+                <img src="{% static 'Main/img/logos/plusYoou.png' %}" class="img-responsive" alt="">
+            </div>
+            <div class="col-lg-3 text-center"></div>
+            <div class="col-lg-5 text-center">
+                <h4 class="section-heading"><strong>加州普创</strong></h4> 
+                <h4 class="section-heading"><strong>plusYoou</strong></h4>
+            </div>
+        </div>
+
+
+
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-lg-1 text-center"></div>
+            <div class="col-lg-3 text-center">
+                <img src="{% static 'Main/img/logos/CSA.jpg' %}" class="img-responsive" alt="">
+            </div>
+            <div class="col-lg-3 text-center"></div>
+            <div class="col-lg-5 text-center">
+                <h4 class="section-heading"><strong>CMU CSA</strong></h4>
+            </div>
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <hr/>
+        <br>
+        <br>
+
+
+        <!-- media -->
+
+
+
+        <div class="row">
+                <div class="col-lg-1 text-center">
+                <img src="{% static 'Main/img/media-icon.png' %}" class="img-responsive" alt="">
+                </div>
+                <div class="col-lg-11 text-center">
+                <h4><strong>Media</strong></h4> 
+                </div>
+           </div>
+           <br>
+           <br>
+           <div class="row">
+            <div class="col-lg-1 text-center"></div>
+            <div class="col-lg-3 text-center">
+                <img src="{% static 'Main/img/logos/friendlypitt.png' %}" class="img-responsive" alt="">
+            </div>
+            <div class="col-lg-3 text-center"></div>
+            <div class="col-lg-5 text-center">
+                <h4 class="section-heading"><strong>友好匹兹堡</strong></h4> 
+                <h4 class="section-heading"><strong>Friendly Pittsburgh</strong></h4>     
+            </div>
+        </div>
+        <br>
+        <br>
+           <div class="row">
+            <div class="col-lg-1 text-center"></div>
+            <div class="col-lg-3 text-center">
+                <img src="{% static 'Main/img/logos/CCTV.png' %}" class="img-responsive" alt="">
+            </div>
+            <div class="col-lg-3 text-center"></div>
+            <div class="col-lg-5 text-center">
+                <h4 class="section-heading"><strong>中国中央电视台</strong></h4> 
+                <h4 class="section-heading"><strong>CCTV</strong></h4>     
+            </div>
+        </div>
+        <br>
+        <br>
+           <div class="row">
+            <div class="col-lg-1 text-center"></div>
+            <div class="col-lg-3 text-center">
+                <img src="{% static 'Main/img/logos/chinayouthdaily.jpg' %}" class="img-responsive" alt="">
+            </div>
+            <div class="col-lg-3 text-center"></div>
+            <div class="col-lg-5 text-center">
+                <h4 class="section-heading"><strong>中国青年报</strong></h4> 
+                <h4 class="section-heading"><strong>China Youth Daily</strong></h4>     
+            </div>
+        </div>
+        <br>
+        <br>
+           <div class="row">
+            <div class="col-lg-1 text-center"></div>
+            <div class="col-lg-3 text-center">
+                <img src="{% static 'Main/img/logos/tndt.png' %}" class="img-responsive" alt="">
+            </div>
+            <div class="col-lg-3 text-center"></div>
+            <div class="col-lg-5 text-center">
+                <h4 class="section-heading"><strong>鸵鸟电台</strong></h4>    
+            </div>
+        </div>
+
+        <br>
+        <br>
+           <div class="row">
+            <div class="col-lg-1 text-center"></div>
+            <div class="col-lg-3 text-center">
+                <img src="{% static 'Main/img/logos/sinovision.jpg' %}" class="img-responsive" alt="">
+            </div>
+            <div class="col-lg-3 text-center"></div>
+            <div class="col-lg-5 text-center">
+                <h4 class="section-heading"><strong>美国中文电视台</strong></h4>  
+                <h4 class="section-heading"><strong>SINOVISION</strong></h4>    
+  
+            </div>
+        </div>
+
+        <br>
+        <br>
+           <div class="row">
+            <div class="col-lg-1 text-center"></div>
+            <div class="col-lg-3 text-center">
+                <img src="{% static 'Main/img/logos/rmrb.jpg' %}" class="img-responsive" alt="">
+            </div>
+            <div class="col-lg-3 text-center"></div>
+            <div class="col-lg-5 text-center">
+                <h4 class="section-heading"><strong>人民日报</strong></h4>  
+  
+            </div>
+        </div>
+
+
+        <br>
+        <br>
+           <div class="row">
+            <div class="col-lg-1 text-center"></div>
+            <div class="col-lg-3 text-center">
+                <img src="{% static 'Main/img/logos/bjyouthdaily.jpg' %}" class="img-responsive" alt="">
+            </div>
+            <div class="col-lg-3 text-center"></div>
+            <div class="col-lg-5 text-center">
+                <h4 class="section-heading"><strong>北京青年报</strong></h4>  
+                <h4 class="section-heading"><strong>Beijing Youth Daily</strong></h4>  
+  
+            </div>
+        </div>
+        <br>
+        <br>
+           <div class="row">
+            <div class="col-lg-1 text-center"></div>
+            <div class="col-lg-3 text-center">
+                <img src="{% static 'Main/img/logos/CMU Tartan.jpg' %}" class="img-responsive" alt="">
+            </div>
+            <div class="col-lg-3 text-center"></div>
+            <div class="col-lg-5 text-center">
+                <h4 class="section-heading"><strong>CMU Tartan</strong></h4>  
+  
+            </div>
+        </div>
+
+        <br>
+        <br>
+           <div class="row">
+            <div class="col-lg-1 text-center"></div>
+            <div class="col-lg-3 text-center">
+                <img src="{% static 'Main/img/logos/bmlxs.jpg' %}" class="img-responsive" alt="">
+            </div>
+            <div class="col-lg-3 text-center"></div>
+            <div class="col-lg-5 text-center">
+                <h4 class="section-heading"><strong>北美留学声</strong></h4>  
+  
+            </div>
+        </div>
+         <br>
+        <br>
+        <br>
+        <br>
+        <hr/>
+        <br>
+        <br>
+
+        <!-- strategic partner -->
+
+
+        <div class="row">
+                <div class="col-lg-1 text-center">
+                <img src="{% static 'Main/img/partner.png' %}" class="img-responsive" alt="">
+                </div>
+                <div class="col-lg-11 text-center">
+                <h4><strong>Strategic Partner</strong></h4> 
+                </div>
+           </div>
+           <br>
+        <br>
+           <div class="row">
+            <div class="col-lg-1 text-center"></div>
+            <div class="col-lg-3 text-center">
+                <img src="{% static 'Main/img/logos/creatineer.jpg' %}" class="img-responsive" alt="">
+            </div>
+            <div class="col-lg-3 text-center"></div>
+            <div class="col-lg-5 text-center">
+                <h4 class="section-heading"><strong>2016国际智能星创师大赛</strong></h4>
+                <h4 class="section-heading"><strong>Creatineer&CMU</strong></h4>  
+  
+            </div>
+        </div>
+
+         <br>
+        <br>
+           <div class="row">
+            <div class="col-lg-1 text-center"></div>
+            <div class="col-lg-3 text-center">
+                <img src="{% static 'Main/img/logos/sczx.jpg' %}" class="img-responsive" alt="">
+            </div>
+            <div class="col-lg-3 text-center"></div>
+            <div class="col-lg-5 text-center">
+                <h4 class="section-heading"><strong>社创之星</strong></h4>
+  
+            </div>
+        </div>
+
+
+
+        <br>
+        <br>
+           <div class="row">
+            <div class="col-lg-1 text-center"></div>
+            <div class="col-lg-3 text-center">
+                <img src="{% static 'Main/img/logos/CSSA.jpg' %}" class="img-responsive" alt="">
+            </div>
+            <div class="col-lg-3 text-center"></div>
+            <div class="col-lg-5 text-center">
+                <h4 class="section-heading"><strong>CMU CSSA</strong></h4>
+  
+            </div>
+        </div>
+
+        </div>
+    </section>
+
+{% endblock %}

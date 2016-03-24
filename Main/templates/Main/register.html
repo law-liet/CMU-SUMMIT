@@ -1,8 +1,7 @@
 {% extends 'Main/base.html' %}
 {% load staticfiles %}
 {% block content %}
-    <script>window.url = "{% url 'Main:signup' %}";</script>
-<nav class="navbar navbar-default navbar-fixed-top">
+  <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
@@ -12,35 +11,74 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="{% url 'Main:home' %}">CMU-SUMMIT</a>
+                <a class="navbar-brand page-scroll" href="#page-top">CMU-SUMMIT</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="{% url 'Main:home' %}">Home</a>
+                        <a href="{% url 'Main:agenda' %}" id="agenda">AGENDA</a>
                     </li>
+                    <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">SPEAKERS <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{% url 'Main:opening_remarks' %}">Opening Remarks</a></li>
+                                <li><a href="{% url 'Main:keynote_speakers' %}">Keynote Speakers</a></li>
+                                <li><a href="{% url 'Main:panelist' %}">Panel Speakers</a></li>
+                            </ul>
+                    </li>
+                    <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">PANELS <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{% url 'Main:ie' %}">IE</a></li>
+                                <li><a href="{% url 'Main:start_up' %}">Start-up</a></li>
+                                <li><a href="{% url 'Main:sustainability' %}">Sustainability</a></li>
+                                <li><a href="{% url 'Main:high_tech' %}">High Tech</a></li>
+                                <li><a href="{% url 'Main:finance' %}">Finance</a></li>
+                            </ul>
+                        </li>
+                    <li>
+                        <a href="{% url 'Main:competition' %}">COMPETITION</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="{% url 'Main:collaborators' %}">COLLABRATORS</a>
+                    </li>
+                    <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">CAREER <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                                 <li><a href="{% url 'Main:career' %}">Recruiters</a></li>
+                                <li><a href="{% url 'Main:job_fair' %}">Jobfair</a></li>
+                            </ul>
+                        </li>
+                    <li>
+                        <a class="page-scroll" href="#resources">RESOURCES</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about-us">ABOUT US</a>
+                    </li>
+
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container-fluid -->
     </nav>
-    <section id="contact">
+<section id="contact">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Register</h2>
+                    <h2 class="section-heading">General Registration</h2>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-12">
                     <form name="sentMessage" id="contactForm" novalidate>
                         <div class="row">
+                        <div class="col-md-3"></div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <input type="text" class="form-control" placeholder="Your Name *" id="name" required data-validation-required-message="Please enter your name.">
@@ -54,45 +92,52 @@
                                     <input type="tel" class="form-control" placeholder="Your Phone *" id="phone" required data-validation-required-message="Please enter your phone number.">
                                     <p class="help-block text-danger"></p>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
                                 <div class="form-group">
-                                <select class="form-control" id="company" required data-validation-required-message="Please select your interested company">
-                                    <option selected>Most Interested Company</option>
-                                    <option value="1">Cheetah Mobile</option>
-                                    <option value="2">DJI</option>
-                                    <option value="3">EHANG</option>
-                                    <option value="4">Liaoyuan</option>
-                                    <option value="5">ROBOTERRA</option>
-                                    <option value="6">Smarking</option>
-                                    <option value="7">Tezign</option>
-                                    <option value="8">Trust Look</option>
-                                    <option value="9">Westlake Ventures</option>
-                                    <option value="10">Idea Bulb Ventures</option>
-                                    <option value="11">Innospring</option>
-                                </select>
+                                    <label for="role">Select your current status:</label>
+                                    <select class="form-control" id="role">
+                                            <option>CMU Student</option>
+                                            <option>CMU Faculty</option>
+                                            <option>CMU Alumni</option>
+                                            <option>Non-CMU affiliate</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="degree">If you are a student, select your degree:</label>
+                                    <select class="form-control" id="degree">
+                                            <option>Undergraduate</option>
+                                            <option>Graduate</option>
+                                            <option>Doctor</option>
+                                            <option>Post Doc</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                <label for="major">If you are a student, tell us your major:</label>
+                                    <input type="major" class="form-control" placeholder="Computer Science" id="major">
                                 </div>
 
-                                <div class="form-group"  required data-validation-required-message="Please select your role">
-                                <select class="form-control" id="role">
-                                    <option selected>I am coming as a</option>
-                                    <option value="1">Student</option>
-                                    <option value="2">Company</option>
-                                    <option value="3">Recruiter</option>
-                                </select>
-                                </div>
 
+                                <div class="form-group">
+                                <label for="department">If you are a faculty, tell us your department:</label>
+                                    <input type="department" class="form-control" placeholder="Tepper Business School" id="department">
+                                </div>
+                                <div class="form-group">
+                                <label for="institution">If you are not from CMU, tell us your institution:</label>
+                                    <input type="company" class="form-control" placeholder="Company" id="institution">
+                                </div>
                             </div>
+                            <div class="col-md-3"></div>
                             <div class="clearfix"></div>
-                            <div class="col-lg-12 text-center">
+                            <div class="col-md-5"></div>
+                            <div class="col-lg-4 text-center">
                                 <div id="success"></div>
                                 <button type="submit" class="btn btn-xl">Register</button>
                             </div>
+                            <div class="col-md-3"></div>
                         </div>
-                        {% csrf_token %}
                     </form>
                 </div>
             </div>
         </div>
     </section>
-{% endblock %}
+
+  {% endblock %}

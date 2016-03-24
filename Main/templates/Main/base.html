@@ -34,6 +34,73 @@
 
 <body id="page-top" class="index">
 
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">CMU-SUMMIT</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a href="{% url 'Main:agenda' %}" id="agenda">AGENDA</a>
+                    </li>
+                    <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">SPEAKERS <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{% url 'Main:opening_remarks' %}">Opening Remarks</a></li>
+                                <li><a href="{% url 'Main:keynote_speakers' %}">Keynote Speakers</a></li>
+                                <li><a href="{% url 'Main:panelist' %}">Panel Speakers</a></li>
+                            </ul>
+                    </li>
+                    <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">PANELS <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{% url 'Main:ie' %}">IE</a></li>
+                                <li><a href="{% url 'Main:start_up' %}">Start-up</a></li>
+                                <li><a href="{% url 'Main:sustainability' %}">Sustainability</a></li>
+                                <li><a href="{% url 'Main:high_tech' %}">High Tech</a></li>
+                                <li><a href="{% url 'Main:finance' %}">Finance</a></li>
+                            </ul>
+                        </li>
+                    <li>
+                        <a href="{% url 'Main:competition' %}">COMPETITION</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="{% url 'Main:collaborators' %}">COLLABRATORS</a>
+                    </li>
+                    <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">CAREER <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                                 <li><a href="{% url 'Main:career' %}">Recruiters</a></li>
+                                <li><a href="{% url 'Main:job_fair' %}">Jobfair</a></li>
+                            </ul>
+                        </li>
+                    <li>
+                        <a class="page-scroll" href="#resources">RESOURCES</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about-us">ABOUT US</a>
+                    </li>
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
     {% block content %}
 
     {% endblock %}
@@ -41,27 +108,36 @@
     <footer>
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
-                    <span class="copyright">Copyright &copy; CMU-SUMMIT 2016</span>
+                <div class="col-md-2">
+                    <a href="{% url 'Main:agenda' %}"><h5>Agenda</h5></a>
+                    <a href="{% url 'Main:feature_events' %}"><h5>Featured Events</h5></a>
                 </div>
-                <div class="col-md-4">
-                    <ul class="list-inline social-buttons">
-                        <li><a href="#"><i class="fa fa-twitter"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                        </li>
-                    </ul>
+                <div class="col-md-2">
+                    <a href="{% url 'Main:keynote_speakers' %}"><h5>Keynote Speakers</h5></a>
+                    <a href="{% url 'Main:panelist' %}"><h5>Panel Speakers</h5></a>
+                    <a href="{% url 'Main:opening_remarks' %}"><h5>Opening Remarks</h5></a>
                 </div>
-                <div class="col-md-4">
-                    <ul class="list-inline quicklinks">
-                        <li><a href="#">Privacy Policy</a>
-                        </li>
-                        <li><a href="#">Terms of Use</a>
-                        </li>
-                    </ul>
+                <div class="col-md-2">
+                    <a href="{% url 'Main:ie' %}"><h5>IE Panel</h5></a>
+                    <a href="{% url 'Main:sustainability' %}"><h5>Sustainability Panel</h5></a>
+                    <a href="{% url 'Main:finance' %}"><h5>Finance Panel</h5></a>
+                    <a href="{% url 'Main:start_up' %}"><h5>Start-up Panel</h5></a>
+                    <a href="{% url 'Main:high_tech' %}"><h5>High Tech Panel</h5></a>
                 </div>
+                <div class="col-md-2">
+                    <a href="{% url 'Main:competition' %}"><h5>Competition</h5></a>
+                </div>
+                <div class="col-md-2">
+                    <a href="{% url 'Main:collaborators' %}"><h5>Collaborators</h5></a>
+                </div>
+                <div class="col-md-2">
+                    <a href="{% url 'Main:job_fair' %}"><h5>Job Fair</h5></a>
+                    <a href="{% url 'Main:career' %}"><h5>Meet Recruiters</h5></a>
+                </div>
+
+            </div>
+            <div class="row">
+             <span class="copyright">Copyright &copy; CMU-SUMMIT 2016</span>
             </div>
         </div>
     </footer>
@@ -80,8 +156,8 @@
 
     <!-- Contact Form JavaScript -->
     <script src="{% static 'Main/js/jqBootstrapValidation.js' %}"></script>
-    <script src="{% static 'Main/js/contact_me.js' %}"></script>
-
+    <script src="{% static 'Main/js/register.js' %}"></script>
+    <script src="{% static 'Main/js/register_job.js' %}"></script>
     <!-- Custom Theme JavaScript -->
     <script src="{% static 'Main/js/agency.js' %}"></script>
 

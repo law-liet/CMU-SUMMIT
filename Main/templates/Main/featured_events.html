@@ -1,7 +1,6 @@
 {% extends 'Main/base.html' %}
 {% load staticfiles %}
 {% block content %}
-
 <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -12,43 +11,97 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="{% url 'Main:home' %}">CMU-SUMMIT</a>
+                <a class="navbar-brand page-scroll" href="#page-top">CMU-SUMMIT</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
+                    <li>
+                        <a href="{% url 'Main:agenda' %}" class="active">AGENDA</a>
+                    </li>
+                    <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">SPEAKERS <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{% url 'Main:opening_remarks' %}">Opening Remarks</a></li>
+                                <li><a href="{% url 'Main:keynote_speakers' %}">Keynote Speakers</a></li>
+                                <li><a href="{% url 'Main:panelist' %}">Panel Speakers</a></li>
+                            </ul>
+                    </li>
+                    <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">PANELS <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{% url 'Main:ie' %}">IE</a></li>
+                                <li><a href="{% url 'Main:start_up' %}">Start-up</a></li>
+                                <li><a href="{% url 'Main:sustainability' %}">Sustainability</a></li>
+                                <li><a href="{% url 'Main:high_tech' %}">High Tech</a></li>
+                                <li><a href="{% url 'Main:finance' %}">Finance</a></li>
+                            </ul>
+                        </li>
+                    <li>
+                        <a href="{% url 'Main:competition' %}">COMPETITION</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="{% url 'Main:collaborators' %}">COLLABRATORS</a>
+                    </li>
+                    <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">CAREER <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                                 <li><a href="{% url 'Main:career' %}">Recruiters</a></li>
+                                <li><a href="{% url 'Main:job_fair' %}">Jobfair</a></li>
+                            </ul>
+                        </li>
+                    <li>
+                        <a class="page-scroll" href="#resources">RESOURCES</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about-us">ABOUT US</a>
+                    </li>
 
-                    <li>
-                        <a class="page-scroll" href="#lunch-event">Lunch Event</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#private-dinner">Private Dinner</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#job-fair">Job Fair</a>
-                    </li>
-
-                    <li>
-                        <a class="page-scroll" href="{% url 'Main:home' %}">Home</a>
-                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container-fluid -->
     </nav>
-        <section id="lunch-event">
+    <section>
 
-        </section>
-        <section id="private-dinner">
+    <div class="container">
+        <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Featured Events</h2>
+                    <hr/>
+                </div>
+            </div>
 
-        </section>
-        <section id="job-fair">
+            <div class="row">
+            <h3>Networking Lunch</h3>
+            <h4>Time: 04/09 Saturday 12.00pm-13.00pm</h4>
+            <h4>Location: CUC DANFORTH</h4>
+            <p class="text-muted">This event is an excellent chance to get closer to our distinguished guests and speakers. Traditional Chinese dim sum buffet will be provided. </p>
+            <a>Register</a>
+            </div>
+        <hr/>
+            <div class="row">
+            <h3>Employment Opportunity Conference</h3>
+            <h4>Time: 04/10 Sunday 12.30pm-14.30pm</h4>
+            <h4>Location: CUC DOWD</h4>
+            <p class="text-muted">This event is an excellent chance for students seeking internship or fulltime opportunities in a startup environment. Traditional Chinese dim sum buffet will be provided.</p>
+            <a href="{% url 'Main:register_job' %}">Register</a>
+            </div>
+        <hr/>
+            <div class="row">
+            <h3>Private Dinner</h3>
+            <h4>Time: 04/09 Saturday 7:00 PM-9: 00 PM</h4>
+            <h4>Location: Westin Convention Center</h4>
+            <p class="text-muted">All of Summit’s guests will attend the private dinner. If you want to purchase tickets to have the face-to-face communication with our guests, VIP Tickets are distributed on a very limited basis so R.S.V.P. before they are all gone.</p>
+            <a href="{% url 'Main:register_job' %}">Register</a>
+            </div>
 
+        </div>
         </section>
 
 {% endblock %}

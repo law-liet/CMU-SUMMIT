@@ -1,37 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>CMU-SUMMIT</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-
-    <!-- Custom CSS -->
-    <link href="css/agency.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-</head>
-<body id="page-top" class="index">
-<nav class="navbar navbar-default navbar-fixed-top">
+{% extends 'Main/base.html' %}
+{% load staticfiles %}
+{% block content %}
+  <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
@@ -41,7 +11,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="index.html">CMU-SUMMIT</a>
+                <a class="navbar-brand page-scroll" href="#page-top">CMU-SUMMIT</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -51,35 +21,39 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a href="agenda.html">AGENDA</a>
+                        <a href="{% url 'Main:agenda' %}" id="agenda">AGENDA</a>
                     </li>
                     <li class="dropdown">
-                            <a href="#" class="active" class="dropdown-toggle" data-toggle="dropdown">SPEAKERS <i class="fa fa-angle-down"></i></a>
+                            <a href="#" class="dropdown-toggle active" data-toggle="dropdown">SPEAKERS <i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu">
-                                <li><a href="opening_remarks.html">Opening Remarks</a></li>
-                                <li><a href="keynote_speakers.html">Keynote Speakers</a></li>
-                                <li><a href="panelist.html">Panel Speakers</a></li>
+                                <li><a href="{% url 'Main:opening_remarks' %}">Opening Remarks</a></li>
+                                <li><a href="{% url 'Main:keynote_speakers' %}">Keynote Speakers</a></li>
+                                <li><a href="{% url 'Main:panelist' %}">Panel Speakers</a></li>
                             </ul>
                     </li>
                     <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">PANELS <i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu">
-                                 <li><a href="ie.html">IE</a></li>
-                                <li><a href="start_up.html">Start-up</a></li>
-                                <li><a href="sustainability.html">Sustainability</a></li>
-                                <li><a href="high_tech.html">High Tech</a></li>
-                                <li><a href="finance.html">Finance</a></li>
+                                <li><a href="{% url 'Main:ie' %}">IE</a></li>
+                                <li><a href="{% url 'Main:start_up' %}">Start-up</a></li>
+                                <li><a href="{% url 'Main:sustainability' %}">Sustainability</a></li>
+                                <li><a href="{% url 'Main:high_tech' %}">High Tech</a></li>
+                                <li><a href="{% url 'Main:finance' %}">Finance</a></li>
                             </ul>
                         </li>
                     <li>
-                        <a class="page-scroll" href="competition.html">COMPETITION</a>
+                        <a href="{% url 'Main:competition' %}">COMPETITION</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="collaborators.html">COLLABRATORS</a>
+                        <a class="page-scroll" href="{% url 'Main:collaborators' %}">COLLABRATORS</a>
                     </li>
-                    <li>
-                        <a class="page-scroll" href="career.html">CAREER</a>
-                    </li>
+                    <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">CAREER <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                                 <li><a href="{% url 'Main:career' %}">Recruiters</a></li>
+                                <li><a href="{% url 'Main:job_fair' %}">Jobfair</a></li>
+                            </ul>
+                        </li>
                     <li>
                         <a class="page-scroll" href="#resources">RESOURCES</a>
                     </li>
@@ -94,87 +68,70 @@
         <!-- /.container-fluid -->
     </nav>
     
-    <section id="speakers">
+    <section id="opening">
         <div class="container">
-            <div class="row">
+        <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">Opening Remarks</h2>
                     <hr/>
                 </div>
             </div>
-            <div class="row text-center">
-                <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                    <img src="img/speakers/feng_li.png" class="img-responsive img-circle" alt="">
-                    </span>
-                    <h4 class="service-heading">Feng Li</h4>
-                    <p class="text-muted">Feng focuses on Education, TMT, and Deep Technology. He pays strong attention to E-commerce, Fintech, online education, new generation lifestyle businesses and O2O enterprises. Previously as a partner at IDG-Accel, he led investments on a series of successful projects, including CreditEase, Zhubajie, Prosper, Three Squirrels, Tongbanjie, Didapinche, Bilibili, Coinbase, and etc. Among them, Zhubajie, CreditEase and Prosper successfully joined Billion Dollar Club.</p>
-                </div>
-                <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <img src="img/speakers/jimmy_hisa.png" class="img-responsive img-circle" alt="">
-                    </span>
-                    <h4 class="service-heading">Jimmy Xia</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                </div>
-                <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                    <img src="img/speakers/feng_li.png" class="img-responsive img-circle" alt="">
-                        <!-- <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-lock fa-stack-1x fa-inverse"></i> -->
-                    </span>
-                    <h4 class="service-heading">Sheng Fu</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-
-                </div>
+        <div class="row">
+            <div class="col-lg-3 text-center">
+            <img src="{% static 'Main/img/speakers/Dave Mawhinney.jpg' %}" class="img-responsive img-circle" alt="">
             </div>
+            <div class="col-lg-1 text-center"></div>
+
+
+            <div class="col-lg-8">
+            <h3>Dave Mawhinney</h3>
+            <br>
+            <p>Prior to joining Carnegie Mellon, Dave was co-founder, Chairman and CEO of mSpoke, an internet content and advertising recommendation engine, was acquired in 2010 by LinkedIn, the world’s leading professional social networking site. In 2006, Morgan Stanley’s MSCI/Barra business unit acquired mSpoke’s first business line, a quantitative investment recommendation engine.
+Prior to mSpoke, Dave was a General Partner of PNC Technology Investors. Earlier in his career, he co-founded three successful startup ventures, including Premier Health Exchange (acquired by Medibuy), Hawk Medical (acquired by McKesson), and Industry.Net (merged with AT&T Business Network to form Nets, Inc.).
+Dave is also an active Board Member at MedSage Technologies (now NewCare Solutions LLC), EZ-FLO Injection Systems, and the Indiana University of Pennsylvania Alumni Association (ex-officio, Past President.). He is an Advisory Board Member to InnovationWork’s AlphaLab, Pittsburgh Equity Partners, and Carnegie Mellon University’s Project Olympus. Dave also served as Executive-in-Residence at the Pittsburgh Life Sciences Greenhouse working with healthcare information technology start-ups.
+Dave lives with his wife Kristan and three sons in Fox Chapel, PA.
+Mr. Mawhinney holds an MBA with Distinction from Carnegie Mellon University and a B. S. in Physics, Summa Cum Laude, from Indiana University of Pennsylvania.
+</p>
+            
+            </div>
+
+        </div>
+
+
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+
+
+        <div class="row">
+            <div class="col-lg-3 text-center">
+            <img src="{% static 'Main/img/speakers/Lenore Blum.jpg' %}" class="img-responsive img-circle" alt="">
+            </div>
+            <div class="col-lg-1 text-center"></div>
+
+
+            <div class="col-lg-8">
+            <h3>Lenore Blum</h3>
+            <br>
+            <p>Lenore Blum (PhD, MIT) is Distinguished Career Professor of Computer Science at Carnegie Mellon and Founding Director of Project Olympus. Project Olympus is a good example of her determination to make a real difference in the academic community and the world beyond. Olympus has two main aims: to bridge the gap between cutting-edge university research/innovation and economy-promoting commercialization for the benefit of our communities and to creating a climate, culture and community to enable talent and ideas to grow in the region.
+
+Lenore is internationally recognized for her work in increasing the participation of girls and women in Science, Technology, Engineering, and Math (STEM) fields. At Carnegie Mellon she founded the Women@SCS program. In 2004 she received the US Presidential Award for Excellence in Science, Mathematics, and Engineering Mentoring.In 2009 she received the Carnegie Science Catalyst Award recognizing her work with Project Olympus targeting high-tech talent to promote economic growth in the Pittsburgh region and for increasing the participation of women in computer science.
+
+Her research, founding a theory of computation and complexity over continuous domains, forms a theoretical basis for scientific computation. On the eve of Alan Turing’s 100th birthday in June 2012, she was plenary speaker at the Turing Centenary Celebration at the University of Cambridge, England.
+</p>
+            
+            </div>
+
+        </div>
+
+
+
+
+
         </div>
     </section>
-    
-     <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <span class="copyright">Copyright &copy; CMU-SUMMIT 2016</span>
-                </div>
-                <div class="col-md-4">
-                    <ul class="list-inline social-buttons">
-                        <li><a href="#"><i class="fa fa-twitter"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <ul class="list-inline quicklinks">
-                        <li><a href="#">Privacy Policy</a>
-                        </li>
-                        <li><a href="#">Terms of Use</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer>
 
-    <!-- jQuery -->
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-    <script src="js/classie.js"></script>
-    <script src="js/cbpAnimatedHeader.js"></script>
-
-    <!-- Contact Form JavaScript -->
-    <script src="js/jqBootstrapValidation.js"></script>
-    <script src="js/contact_me.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="js/agency.js"></script>
-</body>
-</html>
+{% endblock %}

@@ -21,12 +21,50 @@ def register(request):
     return render(request, 'Main/register.html')
     #else:
     #return redirectHttps(request)  
+def agenda(request):
+    return render(request, 'Main/agenda.html')
+
+def keynote_speakers(request):
+    return render(request, 'Main/keynote_speakers.html')
+
+def opening_remarks(request):
+    return render(request, 'Main/opening_remarks.html')
+
+def ie(request):
+    return render(request, 'Main/ie.html')
+
+def sustainability(request):
+    return render(request, 'Main/sustainability.html')
+
+def finance(request):
+    return render(request, 'Main/finance.html')
+
+def start_up(request):
+    return render(request, 'Main/start_up.html')
+
+def high_tech(request):
+    return render(request, 'Main/high_tech.html')
+
+def competition(request):
+    return render(request, 'Main/competition.html')
+
+def collaborators(request):
+    return render(request, 'Main/collaborators.html')
 
 def panelist(request):
     return render(request, 'Main/panelist.html')
 
-def feature_events(request, event = 'lunch-event'):
-    return render(request, 'Main/featured_events.html', {'event' : event})
+def feature_events(request):
+    return render(request, 'Main/featured_events.html')
+
+def job_fair(request):
+    return render(request, 'Main/job_fair.html')
+
+def register_job(request):
+    return render(request, 'Main/register_job.html')
+
+def career(request):
+    return render(request, 'Main/career.html')
 
 def signup(request):
 

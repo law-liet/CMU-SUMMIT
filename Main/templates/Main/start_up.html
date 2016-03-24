@@ -1,0 +1,110 @@
+{% extends 'Main/base.html' %}
+{% load staticfiles %}
+{% block content %}
+  <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">CMU-SUMMIT</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a href="{% url 'Main:agenda' %}" id="agenda">AGENDA</a>
+                    </li>
+                    <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">SPEAKERS <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{% url 'Main:opening_remarks' %}">Opening Remarks</a></li>
+                                <li><a href="{% url 'Main:keynote_speakers' %}">Keynote Speakers</a></li>
+                                <li><a href="{% url 'Main:panelist' %}">Panel Speakers</a></li>
+                            </ul>
+                    </li>
+                    <li class="dropdown active">
+                            <a href="#" class="dropdown-toggle active" data-toggle="dropdown">PANELS <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{% url 'Main:ie' %}">IE</a></li>
+                                <li><a class="active" href="{% url 'Main:start_up' %}">Start-up</a></li>
+                                <li><a href="{% url 'Main:sustainability' %}">Sustainability</a></li>
+                                <li><a href="{% url 'Main:high_tech' %}">High Tech</a></li>
+                                <li><a href="{% url 'Main:finance' %}">Finance</a></li>
+                            </ul>
+                        </li>
+                    <li>
+                        <a href="{% url 'Main:competition' %}">COMPETITION</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="{% url 'Main:collaborators' %}">COLLABRATORS</a>
+                    </li>
+                    <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">CAREER <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                                 <li><a href="{% url 'Main:career' %}">Recruiters</a></li>
+                                <li><a href="{% url 'Main:job_fair' %}">Jobfair</a></li>
+                            </ul>
+                        </li>
+                    <li>
+                        <a class="page-scroll" href="#resources">RESOURCES</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about-us">ABOUT US</a>
+                    </li>
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+
+    <section id="panel">
+    <div class="container">
+    <div class="row">
+   <div class="col-md-4">
+         <img src="{% static 'Main/img/panel/Startup1.png' %}" class="img-responsive" alt="">
+             <div class="portfolio-caption">
+                </div>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-7">
+            <h2>Start-up Panel</h2>
+            <hr/>
+            <h4>Panel Description</h4>
+            <p class="text-muted">As the brand new section of 5th CMU Summit, the Start-up Panel will gather the founders of mature startups, who will introduce their companies and products. During the introduction, the speakers will share with audience invaluable lessons gained from their entrepreneurship experiences. The Start-up Panel aims to build up a communication platform between sophistic and young entrepreneurs for seeking and cultivating the next “Unicorn”.</p>
+            <h4>Topics</h4>
+            <ul>
+            <li class="text-muted">Not determined</li>
+            </ul>
+            <h4>Panel Speakers</h4>
+            <ul>
+                <li class="text-muted">Yao Zhang (张尧)</li>
+                <li class="text-muted">Guoyu Lin (林国宇)</li>
+                <li class="text-muted">Han Wang (王涵)</li>
+                <li class="text-muted">Qi Su (苏奇)</li>
+                <li class="text-muted">Xin Zhang (张鑫)</li>
+                <li class="text-muted">Harry Zhou</li>
+                <li class="text-muted">Cheng Lv (吕骋)</li>
+                <li class="text-muted">Zheng Xin (覃政)</li>
+                <li class="text-muted">Ge Zhao (赵弋)</li>
+                <li class="text-muted">He Dong (董和)</li>
+
+            </ul>
+            <a href="{% url 'Main:panelist' %}">READ MORE</a>
+        </div>
+    </div>
+
+    </div>
+    </section>

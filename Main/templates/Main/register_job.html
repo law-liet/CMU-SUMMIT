@@ -1,0 +1,176 @@
+{% extends 'Main/base.html' %}
+{% load staticfiles %}
+{% block content %}
+<nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">CMU-SUMMIT</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a href="{% url 'Main:agenda' %}" id="agenda">AGENDA</a>
+                    </li>
+                    <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">SPEAKERS <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{% url 'Main:opening_remarks' %}">Opening Remarks</a></li>
+                                <li><a href="{% url 'Main:keynote_speakers' %}">Keynote Speakers</a></li>
+                                <li><a href="{% url 'Main:panelist' %}">Panel Speakers</a></li>
+                            </ul>
+                    </li>
+                    <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">PANELS <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{% url 'Main:ie' %}">IE</a></li>
+                                <li><a href="{% url 'Main:start_up' %}">Start-up</a></li>
+                                <li><a href="{% url 'Main:sustainability' %}">Sustainability</a></li>
+                                <li><a href="{% url 'Main:high_tech' %}">High Tech</a></li>
+                                <li><a href="{% url 'Main:finance' %}">Finance</a></li>
+                            </ul>
+                        </li>
+                    <li>
+                        <a href="{% url 'Main:competition' %}">COMPETITION</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="{% url 'Main:collaborators' %}">COLLABRATORS</a>
+                    </li>
+                    <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">CAREER <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                                 <li><a href="{% url 'Main:career' %}">Recruiters</a></li>
+                                <li><a href="{% url 'Main:job_fair' %}">Jobfair</a></li>
+                            </ul>
+                        </li>
+                    <li>
+                        <a class="page-scroll" href="#resources">RESOURCES</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about-us">ABOUT US</a>
+                    </li>
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Registration for Job Fair</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <form name="sentMessage" id="contactForm" novalidate>
+                        <div class="row">
+                        <div class="col-md-3"></div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Your Name *" id="name" required data-validation-required-message="Please enter your name.">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" placeholder="Your Email *" id="email" required data-validation-required-message="Please enter your email address.">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="form-group">
+                                    <input type="tel" class="form-control" placeholder="Your Phone *" id="phone" required data-validation-required-message="Please enter your phone number.">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                 <div class="form-group">
+                                    <input type="major" class="form-control" placeholder="YOUR MAJOR" id="major">
+                                </div>
+                                <div class="form-group">
+                                    <input type="university" class="form-control" placeholder="UNIVERSITY YOU ARE FROM" id="university">
+                                </div>
+
+                                 <br>
+                                <div class="form-group">
+                                <h4 class="section-heading">When are you graduating?</h4>
+                                <input type="text" id="datepicker">
+                                </div>
+
+
+                                 <br>
+
+                    <h4 class="section-heading">What Companies are you interested in?</h4>
+                                <div class="form-group">
+                                 <label><input id="cheetahMobile" type="checkbox" value="" >&ensp;&ensp;&ensp;猎豹移动&ensp;Cheetah Mobile</label>
+                                </div>
+                                <div class="form-group">
+                                 <label><input id="dji" type="checkbox" value="">&ensp;&ensp;&ensp;大疆&ensp;DJI</label>
+                                </div>
+                                <div class="form-group">
+                                 <label><input id="ehang" type="checkbox" value="">&ensp;&ensp;&ensp;亿航&ensp;EHANG</label>
+                                </div>
+                                <div class="form-group">
+                                 <label><input id="liaoyuan" type="checkbox" value="">&ensp;&ensp;&ensp;燎原&ensp;Liaoyuan</label>
+                                </div>
+                                <div class="form-group">
+                                 <label><input id="roboterra" type="checkbox" value="">&ensp;&ensp;&ensp;萝卜太辣&ensp;ROBOTERRA</label>
+                                </div>
+                                <div class="form-group">
+                                 <label><input id="smarking" type="checkbox" value="">&ensp;&ensp;&ensp;Smarking</label>
+                                </div>
+                                <div class="form-group">
+                                 <label><input id="trustLook" type="checkbox" value="">&ensp;&ensp;&ensp;Trust Look</label>
+                                </div>
+                                <div class="form-group">
+                                 <label><input id="tegizn" type="checkbox" value="">&ensp;&ensp;&ensp;特赞&ensp;Tezign</label>
+                                </div>
+                                <div class="form-group">
+                                 <label><input id="westlakeVentures" type="checkbox" value="">&ensp;&ensp;&ensp;杭州硅谷创新中心&ensp;Westlake Ventures</label>
+                                </div>
+                                <div class="form-group">
+                                 <label><input id="collegeDaily" type="checkbox" value="">&ensp;&ensp;&ensp;北美留学生日报&ensp;College Daily</label>
+                                </div>
+                                <div class="form-group">
+                                 <label><input id="innospring" type="checkbox" value="">&ensp;&ensp;&ensp;创源&ensp;Innospring</label>
+                                </div>
+                                <div class="form-group">
+                                 <label><input id="ideaBulbVentures" type="checkbox" value="">&ensp;&ensp;&ensp;创意工场&ensp;Idea Bulb Ventures</label>
+                                </div>
+                                <br>
+                                
+                                <div class="form-group">
+                                 <h4 class="section-heading">Upload your Resume if you are interested</h4>
+                                <input id="input-2" name="input2[]" type="file" class="file" multiple data-show-upload="false" data-show-caption="true">
+                                </div>
+                            </div>
+                            <div class="col-md-3"></div>
+                            <div class="clearfix"></div>
+                            <div class="col-md-5"></div>
+                            <div class="col-lg-4 text-center">
+                                <div id="success"></div>
+                                <button type="submit" class="btn btn-xl">Register</button>
+                            </div>
+                            <div class="col-md-3"></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+  $(function() {
+    $( "#datepicker" ).datepicker();
+  });
+  </script>
+
+{% endblock %}
