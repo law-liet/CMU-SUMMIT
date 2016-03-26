@@ -1,25 +1,39 @@
+
+
   var handler = StripeCheckout.configure({
-    key: 'pk_test_6pRNASCoBOKtIshFeQd4XMUh',
+    key: 'pk_test_bAlcI6gMnSDwQqsfIG6NBf1m',
     image: '/img/documentation/checkout/marketplace.png',
     locale: 'auto',
     token: function(token) {
-      // Use the token to create the charge with a server-side script.
-      // You can access the token ID with `token.id`
+      
+
+
     }
   });
 
 $('#StripePayButton').on('click', function(e) {
     // Open Checkout with further options
 
+    var a = document.getElementById('NetworkingLunchEvent').checked;
+    var b = document.getElementById('PrivateDinner').checked;
+    var c = document.getElementById('LunchEvent').checked; 
+    var money = 0;
+    if (b ==true) {
+      money+= 70;
+    }
 
+    if (c == true){
+      money += 30;
+    }
     handler.open({
-      name: 'Stripe.com',
-      description: '2 widgets',
-      amount: 2000
+      name: 'CMU-SUMMIT',
+      description: '',
+      amount: money
     });
     e.preventDefault();
-  });
+});
 
   $(window).on('popstate', function() {
     handler.close();
   });
+
