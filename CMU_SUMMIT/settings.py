@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'gc@jbelo9u(lc%f&+5#qyaxf8_kl39ap$zxx*)p&mr+suip+j_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -99,13 +99,13 @@ USE_L10N = True
 
 USE_TZ = True
 
-#ECURE_SSL_REDIRECT = True
+SECURE_SSL_REDIRECT = True
 
-#SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-#SESSION_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
 
-#CSRF_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
 
 
 # Static files (CSS, JavaScript, Images)
