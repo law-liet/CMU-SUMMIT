@@ -80,8 +80,8 @@ DATABASES = {
             'ENGINE': 'django.db.backends.mysql',
             'NAME': 'ebdb',
             'USER': 'chuanliu',
-            'PASSWORD': 'lc1995316',
-            'HOST': 'aa1oxkvyx30h6p1.cy47s95jz2rp.us-west-2.rds.amazonaws.com',
+            'PASSWORD': 'aiiecaf1995316',
+            'HOST': 'aa1jteo2gchyxhe.cix5hm4forkv.us-east-1.rds.amazonaws.com',
             'PORT': '3306',
         }
     }
