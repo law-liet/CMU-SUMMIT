@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'gc@jbelo9u(lc%f&+5#qyaxf8_kl39ap$zxx*)p&mr+suip+j_'
+SECRET_KEY = 'gc@jbelo9u(lc%f&+5#qyaxfasd8_kl39ap$zxx*)p&mr+suip+j_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -43,7 +43,7 @@ INSTALLED_APPS = (
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    #'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -80,8 +80,8 @@ DATABASES = {
             'ENGINE': 'django.db.backends.mysql',
             'NAME': 'ebdb',
             'USER': 'chuanliu',
-            'PASSWORD': 'lc1995316',
-            'HOST': 'aa1oxkvyx30h6p1.cy47s95jz2rp.us-west-2.rds.amazonaws.com',
+            'PASSWORD': 'aiiecaf1995316',
+            'HOST': 'aa1jteo2gchyxhe.cix5hm4forkv.us-east-1.rds.amazonaws.com',
             'PORT': '3306',
         }
     }
@@ -99,13 +99,13 @@ USE_L10N = True
 
 USE_TZ = True
 
-#ECURE_SSL_REDIRECT = True
+#SECURE_SSL_REDIRECT = True
 
 #SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 #SESSION_COOKIE_SECURE = True
 
-#CSRF_COOKIE_SECURE = True
+#CSRF_COOKIE_SECURE = False
 
 
 # Static files (CSS, JavaScript, Images)

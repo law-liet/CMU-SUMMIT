@@ -18,6 +18,7 @@ $(function() {
             var institution = $("input#institution").val();
             var firstName = name; // For Success/Failure Message
             // Check for white space in name for Success/Fail message
+            var token = $("input[name='csrfmiddlewaretoken']").val();
             if (firstName.indexOf(' ') >= 0) {
                 firstName = name.split(' ').slice(0, -1).join(' ');
             }
@@ -33,12 +34,16 @@ $(function() {
             console.log(institution);
 
             $.ajax({
-                url: "././mail/contact_me.php",
+                url: "../signup",
                 type: "POST",
                 data: {
                     name: name,
                     phone: phone,
                     email: email,
+                    company: institution,
+                    role: role,
+                    major: major,
+                    department: department
                 },
                 cache: false,
                 success: function() {
