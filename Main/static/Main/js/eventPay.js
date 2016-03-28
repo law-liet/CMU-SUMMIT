@@ -2,7 +2,7 @@
 
   var handler = StripeCheckout.configure({
     key: 'pk_test_bAlcI6gMnSDwQqsfIG6NBf1m',
-    image: '/img/documentation/checkout/marketplace.png',
+    //image: '/img/documentation/checkout/marketplace.png',
     locale: 'auto',
     token: function(token) {
       
