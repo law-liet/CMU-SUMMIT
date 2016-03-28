@@ -79,7 +79,7 @@ def signup(request):
         role = request.POST['role']
         degree= request.POST['degree']
         major = request.POST['major']
-        user = User.objects.create(name=name, email=email, role=role , degree= degree, major= major)
+        user = User.objects.create(name=name, email=email, role=role , degree= degree, major= major, )
         user.save()
         return JsonResponse({'status': 0})
 
