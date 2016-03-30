@@ -81,7 +81,7 @@ DATABASES = {
             'NAME': 'ebdb',
             'USER': 'chuanliu',
             'PASSWORD': 'aiiecaf1995316',
-            'HOST': 'aa1jteo2gchyxhe.cix5hm4forkv.us-east-1.rds.amazonaws.com',
+            'HOST': 'aaq8h7lsg96z81.cix5hm4forkv.us-east-1.rds.amazonaws.com',
             'PORT': '3306',
         }
     }
